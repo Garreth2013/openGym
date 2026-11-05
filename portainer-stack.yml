@@ -49,15 +49,25 @@ services:
     image: tailscale/tailscale:stable
     hostname: ${TS_HOSTNAME:-opengym}
     restart: unless-stopped
+    # The HTTPS settings are written by the container itself on every start. A Portainer
+    # Repository stack cannot bind-mount a file from the repo (the path only exists inside
+    # Portainer), so a mounted serve.json arrived as an empty folder and HTTPS never came up.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        mkdir -p /var/lib/tailscale
+        cat > /var/lib/tailscale/serve.json <<'EOF'
+        {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:80"}}}},"AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+        EOF
+        exec /usr/local/bin/containerboot
     environment:
       - TS_AUTHKEY=${TS_AUTHKEY:?set TS_AUTHKEY}
       - TS_HOSTNAME=${TS_HOSTNAME:-opengym}
       - TS_STATE_DIR=/var/lib/tailscale
-      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_SERVE_CONFIG=/var/lib/tailscale/serve.json
       - TS_USERSPACE=true
     volumes:
       - ${DATA_PATH:?set DATA_PATH}/tailscale:/var/lib/tailscale
-      - ./deploy/tailscale:/config:ro
     ports:
       # The web container shares this network namespace, so its LAN port is published here.
       - "${LAN_PORT:-8085}:80"

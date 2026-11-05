@@ -121,7 +121,7 @@ routes), `api/sync-stamps.js` and `frontend/src/lib/sync-merge.js` (the new data
 
 New files: `api/food.js`, `api/coach/core/extras.js`, `frontend/src/lib/{nutrition,protocol,stamped,foods-builtin,apple-workout}.js`,
 `frontend/src/views/{Nutrition,Protocol}.jsx`, `frontend/src/components/AppleWorkoutSheet.jsx`, `frontend/src/extras.css`,
-`portainer-stack.yml`, `deploy/tailscale/serve.json`, this file, and tests beside each.
+`portainer-stack.yml`, this file, and tests beside each.
 
 The new screens are in English only (openGym's other languages fall back to English for them).
 
