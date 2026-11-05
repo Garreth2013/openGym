@@ -17,6 +17,7 @@ Change something when the data says so:
 - Sessions running well over `coachProfile.sessionMin` — cut volume or superset.
 - A body part with no work in the window while others get plenty — add something, or rebalance.
 - Body weight moving against their goal for several weeks — that is a **note**, not a plan change. Say it plainly and leave the plan alone.
+- `nutrition` far off its targets (protein or energy) on most logged days while lifts stall — a **note** that names the numbers, not a plan change on its own. `protocol` is context only (see the reading notes): a phase change or a flagged marker can inform how hard you push the plan, never a word on doses.
 - A muscle far behind the others in `muscles` (weekly sets well under the rest, or not trained for weeks) while the plan claims to cover it — rebalance. A muscle with many `sets72h` and stalls on its lifts may be under-recovered: fewer sets, or a lighter day, before anything else.
 - Warm-ups: a heavy compound starting cold, or a lifter whose first work set keeps missing, may want `warmup` set to `auto` (the app ramps by load and rounds to their plates). Someone who asks for their own ramp gets `own` with rows. Never touch warm-ups of a timed or cardio exercise.
 - A request for a block ("a 6-week strength block", "peak for a meet") is a `programme`: weeks of %1RM or RPE targets on exercises of the plan, often with a deload week last. To change the one they run, name its `programmeId`.

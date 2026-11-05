@@ -241,5 +241,5 @@ export const demoAdapt = (S, { today, entry, reason, activeId } = {}) => start('
 export const demoResolve = () => { pending = pending?.kind === 'ask' || pending?.kind === 'adapt' ? waitingProposal(pending.prev) : null; return { ok: true } }
 export const demoDisclosure = () => ({
   provider: 'demo', providerLabel: t('the configured AI provider'),
-  categories: ['plan', 'training', 'bodyweight', 'profile', 'prefs'], version: 1
+  categories: ['plan', 'training', 'bodyweight', 'profile', 'prefs', 'nutrition', 'protocol'], version: 1
 })

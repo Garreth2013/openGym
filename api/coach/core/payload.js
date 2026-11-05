@@ -13,6 +13,7 @@
 import { glyphStr } from './glyphs.js';
 import { LIBRARY, LIB_BY_ID, libraryHas, libraryName, librarySlice, swapSlice, isStretch, MAX_LIBRARY, ownsNoDumbbells } from './library.js';
 import { muscleLoad, gymOf, challengesOf } from './context.js';
+import { nutritionOut, protocolOut } from './extras.js';
 
 export const CONTRACT = 1;
 // Bounds from FR-22. A review reads a training block, not a training career: more history
@@ -760,6 +761,15 @@ export function build(S, opts = {}) {
       // revision of a plan that does not exist — refine.md would be reading `previous: null`.
       p.userNote = String(opts.refine).slice(0, MAX_NOTE_CHARS);
     }
+  }
+  // Fork additions (core/extras.js): the food log against its targets, and the protocol log
+  // (compounds, doses logged, blood work, blood pressure). Read-only context for a review, a
+  // question or a debrief; each only when there is something in it.
+  if (opts.kind === 'review' || opts.kind === 'ask' || opts.kind === 'debrief') {
+    const nutrition = nutritionOut(S, now);
+    if (nutrition) p.nutrition = nutrition;
+    const protocol = protocolOut(S, now);
+    if (protocol) p.protocol = protocol;
   }
   if (opts.kind !== 'debrief' && opts.kind !== 'adapt') {
     const said = conversation(coach, [opts.note, opts.refine]);

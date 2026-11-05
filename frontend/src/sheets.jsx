@@ -1,3 +1,4 @@
+import { runStartShortcut, runEndShortcut } from './lib/apple-workout.js'
 import { Fragment, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import { useStore } from './store/useStore.js'
 import { exView, exUnitPin, exUnitOf, exUnitTag, withExUnit, profileUnit, viewTarget, storedTarget, storedBar, viewEntry, viewRow, shownWeight } from './lib/ex-unit.js'
@@ -3449,8 +3450,14 @@ export function startFlow(routineIds) {
   // The weigh-in is a setting (Settings → During a workout, issue #137): off goes straight
   // into the session with no body weight on it, same as "Start without weighing in".
   // Off in Settings → Workout, or with the Body module (Settings → Modules): straight into the session.
-  if (S().weighIn === false || !isOn(S(), 'body')) { beginWorkout(routineIds, null); return }
-  bwSheet({ required: true, onDone: bw => beginWorkout(routineIds, bw) })
+  if (S().weighIn === false || !isOn(S(), 'body')) { beginWorkout(routineIds, null); appleStart(); return }
+  bwSheet({ required: true, onDone: bw => { beginWorkout(routineIds, bw); appleStart() } })
+}
+// Fork addition (lib/apple-workout.js): a session the person started here also starts an Apple
+// Workout through their Shortcut, a moment later, once the session is saved and on screen. Not for
+// one the watch started (that goes straight to beginWorkout) and never for a past workout.
+function appleStart() {
+  setTimeout(() => { if (S().active && !S().active.backfill) runStartShortcut(S()) }, 600)
 }
 // `opts` from the Apple Watch (lib/watch-sync.js): a session started there keeps the watch's id,
 // so the sets ticked on it find it, and its start time, however late the phone hears of it.
@@ -4089,6 +4096,8 @@ function doFinishWorkout() {
   const A = st.active
   if (!A) return
   const past = !!A.backfill
+  // Fork addition: the optional "when you finish" Shortcut (lib/apple-workout.js), after the save.
+  if (!past) setTimeout(() => runEndShortcut(S()), 1200)
   const prs = []
   const e1prs = []
   // A workout logged into the past is held against the history before it, the way an edit of a

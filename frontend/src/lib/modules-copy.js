@@ -13,6 +13,8 @@ export const moduleCopy = () => ({
   checkin: [t('Gym check-in'), t('Your membership codes on Home, and NFC stickers that start a workout.')],
   body: [t('Body'), t('Weigh-ins, measurements, progress photos and your weight goal.')],
   health: [t('Health'), t('Apple Health or Health Connect, heart rate and recovery tips.')],
+  nutrition: [t('Nutrition'), t('Log food and track calories, protein, carbs and fat against your targets.')],
+  protocol: [t('Protocol'), t('Compounds and doses, injection-site rotation, blood work and blood pressure.')],
   motivation: [t('Motivation'), t('Streaks, challenges, badges, recaps and your year in openGym.')],
   coach: [t('AI Coach'), t('Reviews your training and suggests changes. You still say yes or no.')],
   integrations: [t('Integrations'), t('Webhooks for Home Assistant and friends, and the MCP server.')],

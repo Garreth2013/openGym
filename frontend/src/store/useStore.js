@@ -97,6 +97,13 @@ export const DEF = {
   // A note per day off (#261): { [iso]: { tag, text, _ts } } (lib/day-notes.js). A noted day is
   // excused from the missed-day nudge; each day merges on its own stamp (lib/sync-merge.js).
   dayNotes: {},
+  // Fork additions. Macro tracking (lib/nutrition.js) and protocol tracking (lib/protocol.js):
+  // records one per id with their own stamp, merged like dayNotes (lib/sync-merge.js STAMPED_MAPS).
+  foodLog: {}, foods: {}, mealTemplates: {}, nutriTargets: {}, nutriDays: {},
+  nutriMeals: null, nutriNetCarbs: false,
+  pedItems: {}, pedLog: {}, bloodwork: {}, markerDefs: {}, bpLog: {},
+  // Start an Apple Workout through a Shortcut when a session starts (lib/apple-workout.js).
+  appleWorkout: { on: false, shortcut: 'Start Strength Workout', ask: false, endShortcut: '' },
   // Body measurements (#82, #699): one check-in per day; canonical cm, kg or % according to
   // the field's unit (lib/measurements.js); merged like weigh-ins (lib/sync-merge.js).
   measurements: [], measurementEnabled: null, customMeasurements: [],

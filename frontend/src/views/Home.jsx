@@ -30,6 +30,11 @@ import { WrappedHomeCard } from '../components/WrappedEntry.jsx'
 import RecoveryHint from '../components/RecoveryHint.jsx'
 import { ChallengesCard } from '../components/Challenges.jsx'
 import { isOn } from '../lib/modules.js'
+import { NutritionHomeCard } from './Nutrition.jsx'
+import { ProtocolHomeCard } from './Protocol.jsx'
+import { dueList, items as protocolItems } from '../lib/protocol.js'
+
+const dueAny = S => dueList(S, todayISO()).length > 0
 
 // Home = what to do now + a quick glance. Deep charts & history live in Stats.
 export default function Home() {
@@ -199,6 +204,14 @@ export default function Home() {
 
     {/* December and January: the year in openGym is ready (lib/wrapped.js homeCardYear). */}
     {on('motivation') && <WrappedHomeCard S={S} />}
+
+    {/* Fork additions: today's macros, and the protocol's doses due today (hidden when none are). */}
+    {on('nutrition') && <NutritionHomeCard S={S} onOpen={() => nav('/nutrition')} />}
+    {on('protocol') && <ProtocolHomeCard S={S} onOpen={() => nav('/protocol')} />}
+    {on('protocol') && !dueAny(S) && <div className="card tap-host">
+      <CardHead icon="syringe" tint="var(--purple)" eyebrow={t('Protocol')} title={protocolItems(S).length ? t('Nothing due today') : t('Track compounds and blood work')} open={{ onClick: () => nav('/protocol') }}
+        action={<Icon name="chevronRight" className="chev" />} />
+    </div>}
 
     {/* What has rested and what is still recovering, kindly (lib/recovery-hint.js). */}
     {on('health') && <RecoveryHint S={S} />}

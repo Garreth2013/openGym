@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, forwardRef, useSyncExternalStore } from 'react'
+import { appleWorkoutSheet } from '../components/AppleWorkoutSheet.jsx'
+import { appleWorkoutOf } from '../lib/apple-workout.js'
 import { useNavigate, useParams, useLocation, Navigate } from 'react-router-dom'
 import { useStore, DEF, hasData } from '../store/useStore.js'
 import { healthStatus, loadHealth, enableHealth, disableHealth, openHealthConnect, onHealthChange, enableRead, disableRead } from '../lib/health-sync.js'
@@ -624,6 +626,9 @@ export default function Settings({ page = null, find = null, via = null, entryKe
         </Row>
       </Section>
       <Section title={t('Before and during')}>
+        {/* Fork addition: start an Apple Workout through a Shortcut (lib/apple-workout.js). */}
+        <Row icon="watch" iconTint="var(--green)" title={t('Start an Apple Workout')} accessory="chevron" onClick={appleWorkoutSheet}
+          subtitle={appleWorkoutOf(S).on ? t('On: runs “{0}”', appleWorkoutOf(S).shortcut) : t('Count your sessions in Apple Fitness')} />
         {/* The quick weigh-in that opens on Start (sheets.jsx startFlow, issue #137); off skips
             straight to the session. Home and Stats still log weight by hand. */}
         {on('body') && <Row icon="scale" iconTint="var(--green)" title={t('Weigh in before workouts')}

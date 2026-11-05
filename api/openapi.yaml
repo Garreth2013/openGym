@@ -3204,6 +3204,49 @@ paths:
   # everything above; they are inert (503) while the instance has no Coach enabled
   # and connected.
 
+  /api/food/search:
+    get:
+      tags: [data]
+      operationId: searchFoods
+      summary: Search foods for macro tracking (fork addition)
+      description: |
+        A cached proxy to Open Food Facts (api/food.js). Values come back per 100 g.
+        `FOOD_COUNTRY` (two letters, e.g. `za`) searches that country's products first.
+        Only the search term leaves the server.
+      parameters:
+        - { name: q, in: query, required: true, schema: { type: string, maxLength: 80 } }
+      responses:
+        '200':
+          description: Matching foods (at most 24).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  foods: { type: array, items: { type: object } }
+        '401': { description: Not signed in. }
+        '502': { description: Open Food Facts could not be reached. }
+
+  /api/food/product:
+    get:
+      tags: [data]
+      operationId: foodByBarcode
+      summary: Look a food up by barcode (fork addition)
+      description: The product with that EAN/UPC barcode from Open Food Facts, per 100 g, or null.
+      parameters:
+        - { name: code, in: query, required: true, schema: { type: string, pattern: '^\d{6,14}$' } }
+      responses:
+        '200':
+          description: The product, or null when it is unknown.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  food: { type: object, nullable: true }
+        '401': { description: Not signed in. }
+        '502': { description: Open Food Facts could not be reached. }
+
   /api/coach/disclosure:
     get:
       tags: [coach]

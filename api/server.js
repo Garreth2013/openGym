@@ -40,6 +40,7 @@ import { stampPut } from './sync-stamps.js';
 import { atomicWrite as durableWrite } from './durable.js';
 import { ipv6Groups, guardedLookup, pushEndpointError, MAX_PUSH_ENDPOINT } from './net-guard.js';
 import { createIntegrations } from './integrations/index.js';
+import { searchFoods, productByCode } from './food.js';
 import { integrationRoutes } from './integrations/routes.js';
 import { excusedOn, nudgeFor, nudgeWindowOpen, toneOf } from './nudge.js';
 import { wrappedPushYear, wrappedSummary, wrappedPushOwed, wrappedPush } from './wrapped.js';
@@ -2973,6 +2974,20 @@ const routes = {
   // Routes live in coach/routes.js and are handed the helpers above rather than importing
   // them: they are closures over db and SECRET, and passing them in keeps that module free of
   // a cycle. Every one of them is inert while the feature is unconfigured.
+  // Fork addition: food lookup for macro tracking (api/food.js). Signed in only; the search
+  // term or barcode is all that leaves the server.
+  'GET /api/food/search': async (req, res) => {
+    if (!readSession(req)) return json(res, 401, { error: 'not signed in' });
+    const q = new URL(req.url, 'http://x').searchParams.get('q') || '';
+    try { json(res, 200, { foods: await searchFoods(q) }); }
+    catch (e) { json(res, 502, { error: 'food lookup unavailable', detail: String(e?.message || e).slice(0, 200) }); }
+  },
+  'GET /api/food/product': async (req, res) => {
+    if (!readSession(req)) return json(res, 401, { error: 'not signed in' });
+    const code = new URL(req.url, 'http://x').searchParams.get('code') || '';
+    try { json(res, 200, { food: await productByCode(code) }); }
+    catch (e) { json(res, 502, { error: 'food lookup unavailable', detail: String(e?.message || e).slice(0, 200) }); }
+  },
   ...coachRoutes({ json, readBody, readSession, requireAdmin }),
 
   /* ---------- integrations ---------- */

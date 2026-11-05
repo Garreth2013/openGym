@@ -9,5 +9,8 @@ export const DATA_CATEGORIES = Object.freeze([
   'training',    // logged sets, targets, effort ratings, durations, PRs, session notes in the review window
   'bodyweight',  // weigh-ins in the window and your goal weight
   'profile',     // the intake answers you gave the Coach, including any limitations
-  'prefs'        // unit, language, effort scale
+  'prefs',       // unit, language, effort scale
+  // Fork additions (core/extras.js): sent with reviews, questions and debriefs when present.
+  'nutrition',   // two weeks of daily calorie and macro totals, and your targets
+  'protocol'     // compounds and schedules, doses logged, the last two blood panels, blood pressure
 ]);
