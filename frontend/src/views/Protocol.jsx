@@ -20,6 +20,7 @@ import DateField from '../components/DateField.jsx'
 import LineChart from '../components/LineChart.jsx'
 import { Button, NumberField, TextField, TextArea, Segmented, Switch, Row, SelectRow } from '../components/ui.jsx'
 import { confirmSheet } from '../sheets.jsx'
+import ExtrasImportButton from '../components/ExtrasImport.jsx'
 import '../extras.css'
 
 const update = fn => useStore.getState().update(fn)
@@ -54,6 +55,7 @@ export default function Protocol() {
     {tab === 'items' && <ItemsTab />}
     {tab === 'blood' && <BloodTab />}
     {tab === 'bp' && <BpTab />}
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}><ExtrasImportButton /></div>
     <div className="px-note">{t('A personal log. It schedules and counts what you enter and flags results against the ranges you set. Talk to your doctor about your results.')}</div>
   </div>
 }
@@ -209,7 +211,7 @@ function ItemsTab() {
     [t('Coming up'), list.filter(i => i.start && i.start > today)],
     [t('Finished'), list.filter(i => i.end && i.end < today).reverse()],
   ]
-  const weekly = list.filter(i => isActive(i, today)).map(i => ({ i, w: weeklyAmount(i) })).filter(x => x.w && (x.w.unit === 'mg' || x.w.unit === 'mcg' || x.w.unit === 'iu'))
+  const weekly = list.filter(i => isActive(i, today) && i.kind !== 'supplement' && i.kind !== 'other').map(i => ({ i, w: weeklyAmount(i) })).filter(x => x.w && (x.w.unit === 'mg' || x.w.unit === 'mcg' || x.w.unit === 'iu'))
   return <>
     <Button variant="tinted" icon="plus" onClick={() => itemSheet()}>{t('Add a compound')}</Button>
     {weekly.length > 0 && <div className="card" style={{ marginTop: 12 }}>

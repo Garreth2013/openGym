@@ -20,6 +20,7 @@ import CardHead from '../components/CardHead.jsx'
 import CameraScan from '../components/CameraScan.jsx'
 import { Button, NumberField, TextField, SearchField, Segmented, Switch, Row, SelectRow } from '../components/ui.jsx'
 import { confirmSheet } from '../sheets.jsx'
+import ExtrasImportButton from '../components/ExtrasImport.jsx'
 import '../extras.css'
 
 const update = (fn, push) => useStore.getState().update(fn, push)
@@ -528,6 +529,8 @@ function NutritionSettings({ close }) {
         onClick={() => confirmSheet({ title: t('Delete {0}?', f.name), message: t('Days you already logged keep their numbers.'), confirmText: t('Delete'), danger: true, onConfirm: () => update(s => { s.foods = withoutRecord(s.foods, f.id) }) })}><Icon name="trash" /></button>
     </div>)}</div> : <div className="muted small">{t('Foods you save while logging show up here.')}</div>}
     <div style={{ height: 14 }} />
+    <ExtrasImportButton />
+    <div style={{ height: 10 }} />
     <Button variant="primary" onClick={() => { saveMeals(); close() }}>{t('Done')}</Button>
   </>
 }
