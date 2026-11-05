@@ -3672,4 +3672,12 @@ export default {
   "Your webhooks stop sending while Integrations is off. They stay set up.": "Deine Webhooks senden nichts, solange „Integrationen“ aus ist. Sie bleiben eingerichtet.",
   "{0} of {1} modules on.": "{0} von {1} Modulen an.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.": "{0} synchronisiert nicht, solange „Gesundheit“ aus ist. Nichts wird getrennt, und es holt alles nach, sobald „Gesundheit“ wieder an ist.",
+  // Fork additions (Nutrition, Protocol, Apple Workout).
+  "Nutrition": "Ernährung",
+  "Protocol": "Protokoll",
+  "Start an Apple Workout": "Apple Training starten",
+  "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.": "Zwei Wochen tägliche Kalorien- und Makrosummen sowie deine Ziele. Nie die Lebensmittel selbst.",
+  "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.": "Deine Substanzen und ihre Zeitpläne, wie viele Dosen du eingetragen hast, deine letzten zwei Blutbilder und dein Blutdruck. Nie Notizen oder Injektionsstellen.",
+  "Log food and track calories, protein, carbs and fat against your targets.": "Mahlzeiten eintragen und Kalorien, Eiweiß, Kohlenhydrate und Fett mit deinen Zielen vergleichen.",
+  "Compounds and doses, injection-site rotation, blood work and blood pressure.": "Substanzen und Dosen, Wechsel der Injektionsstellen, Blutwerte und Blutdruck.",
 }

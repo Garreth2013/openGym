@@ -3652,4 +3652,12 @@ export default {
   "Your webhooks stop sending while Integrations is off. They stay set up.": "\"इंटीग्रेशन\" बंद रहने तक आपके Webhook कुछ नहीं भेजते। वे सेट रहते हैं।",
   "{0} of {1} modules on.": "{1} में से {0} मॉड्यूल चालू।",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.": "\"सेहत\" बंद रहने तक {0} सिंक नहीं करता। कुछ भी डिस्कनेक्ट नहीं होता, और \"सेहत\" लौटते ही सब पकड़ लेता है।",
+  // Fork additions (Nutrition, Protocol, Apple Workout).
+  "Nutrition": "पोषण",
+  "Protocol": "प्रोटोकॉल",
+  "Start an Apple Workout": "Apple वर्कआउट शुरू करें",
+  "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.": "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.",
+  "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.": "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.",
+  "Log food and track calories, protein, carbs and fat against your targets.": "Log food and track calories, protein, carbs and fat against your targets.",
+  "Compounds and doses, injection-site rotation, blood work and blood pressure.": "Compounds and doses, injection-site rotation, blood work and blood pressure.",
 }

@@ -3656,4 +3656,12 @@ export default {
   "Your webhooks stop sending while Integrations is off. They stay set up.": "Пока «Интеграции» выключены, твои вебхуки ничего не отправляют. Они остаются настроенными.",
   "{0} of {1} modules on.": "Включено модулей: {0} из {1}.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.": "Пока «Здоровье» выключено, {0} не синхронизируется. Ничего не отключается, и всё догонится, когда «Здоровье» вернётся.",
+  // Fork additions (Nutrition, Protocol, Apple Workout).
+  "Nutrition": "Питание",
+  "Protocol": "Протокол",
+  "Start an Apple Workout": "Запустить тренировку Apple",
+  "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.": "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.",
+  "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.": "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.",
+  "Log food and track calories, protein, carbs and fat against your targets.": "Log food and track calories, protein, carbs and fat against your targets.",
+  "Compounds and doses, injection-site rotation, blood work and blood pressure.": "Compounds and doses, injection-site rotation, blood work and blood pressure.",
 }

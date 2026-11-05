@@ -3663,4 +3663,12 @@ export default {
   "Your webhooks stop sending while Integrations is off. They stay set up.": "เว็บฮุกจะหยุดส่งระหว่างที่ \"การเชื่อมต่อ\" ปิดอยู่ แต่ยังตั้งค่าไว้เหมือนเดิม",
   "{0} of {1} modules on.": "เปิดอยู่ {0} จาก {1} โมดูล",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.": "{0} จะหยุดซิงก์ระหว่างที่ \"สุขภาพ\" ปิดอยู่ ไม่มีอะไรถูกตัดการเชื่อมต่อ และจะตามทันเมื่อเปิด \"สุขภาพ\" อีกครั้ง",
+  // Fork additions (Nutrition, Protocol, Apple Workout).
+  "Nutrition": "โภชนาการ",
+  "Protocol": "โปรโตคอล",
+  "Start an Apple Workout": "เริ่มการออกกำลังกาย Apple",
+  "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.": "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.",
+  "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.": "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.",
+  "Log food and track calories, protein, carbs and fat against your targets.": "Log food and track calories, protein, carbs and fat against your targets.",
+  "Compounds and doses, injection-site rotation, blood work and blood pressure.": "Compounds and doses, injection-site rotation, blood work and blood pressure.",
 }

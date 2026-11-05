@@ -3645,4 +3645,12 @@ export default {
   "Your webhooks stop sending while Integrations is off. They stay set up.": "「整合」關閉期間，你的 Webhook 不會傳送。設定仍會保留。",
   "{0} of {1} modules on.": "已開啟 {0}/{1} 個模組。",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.": "「健康」關閉期間，{0} 會停止同步。不會中斷任何連線，「健康」重新開啟後會自動補上。",
+  // Fork additions (Nutrition, Protocol, Apple Workout).
+  "Nutrition": "營養",
+  "Protocol": "方案",
+  "Start an Apple Workout": "開始 Apple 體能訓練",
+  "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.": "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.",
+  "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.": "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.",
+  "Log food and track calories, protein, carbs and fat against your targets.": "Log food and track calories, protein, carbs and fat against your targets.",
+  "Compounds and doses, injection-site rotation, blood work and blood pressure.": "Compounds and doses, injection-site rotation, blood work and blood pressure.",
 }

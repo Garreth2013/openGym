@@ -3699,4 +3699,12 @@ export default {
   "Your webhooks stop sending while Integrations is off. They stay set up.": "Dina webhooks skickar inget medan ”Integrationer” är av. De förblir inställda.",
   "{0} of {1} modules on.": "{0} av {1} moduler på.",
   "{0} stops syncing while Health is off. Nothing is disconnected, and it catches up once Health is back.": "{0} slutar synka medan ”Hälsa” är av. Inget kopplas bort, och allt kommer ikapp när ”Hälsa” är tillbaka.",
+  // Fork additions (Nutrition, Protocol, Apple Workout).
+  "Nutrition": "Kost",
+  "Protocol": "Protokoll",
+  "Start an Apple Workout": "Starta ett Apple-träningspass",
+  "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.": "Two weeks of daily calorie and macro totals, and your targets. Never the foods themselves.",
+  "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.": "Your compounds and their schedules, how many doses you logged, your last two blood panels and your blood pressure. Never notes or injection sites.",
+  "Log food and track calories, protein, carbs and fat against your targets.": "Log food and track calories, protein, carbs and fat against your targets.",
+  "Compounds and doses, injection-site rotation, blood work and blood pressure.": "Compounds and doses, injection-site rotation, blood work and blood pressure.",
 }
